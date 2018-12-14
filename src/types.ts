@@ -1,4 +1,4 @@
-import BN from 'bn.js'
+type BN = import('bn.js')
 
 export type RLPInput = Buffer | string | number | Uint8Array | BN | RLPObject | RLPArray | null
 

@@ -1,4 +1,4 @@
-import BN from 'bn.js'
+const BN = require('bn.js')
 
 import { RLPInput, RLPDecoded } from './types'
 
@@ -239,8 +239,7 @@ function toBuffer(v: RLPInput): Buffer {
     } else if (v instanceof Uint8Array) {
       return Buffer.from(v as any)
     } else if (BN.isBN(v)) {
-      // converts a BN to a Buffer
-      return Buffer.from(v.toArray())
+      return Buffer.from((<typeof BN> v).toArray())
     } else {
       throw new Error('invalid type')
     }
